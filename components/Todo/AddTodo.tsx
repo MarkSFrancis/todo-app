@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
-import { Button, TextInput, View } from "react-native";
 import { useTodos } from "./TodoContext";
 import { v4 } from "uuid";
+import { Button, Input, VStack } from "native-base";
 
 export const AddTodo = () => {
   const { addTodo } = useTodos();
@@ -13,13 +13,13 @@ export const AddTodo = () => {
   }, [newTodo, addTodo]);
 
   return (
-    <View>
-      <TextInput
+    <VStack space={4}>
+      <Input
         value={newTodo}
         onChangeText={(value) => setNewTodo(value)}
         placeholder="New todo item"
       />
-      <Button onPress={addNewTodo} title="Add to do" />
-    </View>
+      <Button onPress={addNewTodo}>Add to do</Button>
+    </VStack>
   );
 };

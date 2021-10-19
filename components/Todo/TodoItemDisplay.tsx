@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { Text } from "react-native";
 import { TodoItem as TodoEntry } from "./TodoContext";
+import { Text } from "native-base";
 
 export interface TodoItemDisplayProps {
   todo: TodoEntry;

@@ -3,13 +3,12 @@ import React, { useCallback, useEffect, useState } from "react";
 import { TodoList } from "./TodoList";
 import { TodoItem, TodoProvider } from "./TodoContext";
 import { AddTodo } from "./AddTodo";
+import { Divider, VStack } from "native-base";
 
 export const Todo = () => {
   const [todos, setTodos] = useState<TodoItem[] | undefined>();
-  const {
-    getItem: loadTodos,
-    setItem: saveTodos,
-  } = useAsyncStorage("todo_list");
+  const { getItem: loadTodos, setItem: saveTodos } =
+    useAsyncStorage("todo_list");
 
   useEffect(() => {
     loadTodos().then((items) => {
@@ -33,8 +32,10 @@ export const Todo = () => {
 
   return (
     <TodoProvider value={{ addTodo, todos }}>
-      <TodoList />
-      <AddTodo />
+      <VStack space={4} divider={<Divider />}>
+        <TodoList />
+        <AddTodo />
+      </VStack>
     </TodoProvider>
   );
 };
