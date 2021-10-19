@@ -13,7 +13,6 @@ export default function App() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
-        <Text>Hello world!</Text>
         <Todo />
       </View>
     </SafeAreaView>
