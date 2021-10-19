@@ -10,8 +10,6 @@ import {
 import { Todo } from "./src/Todo";
 
 export default function App() {
-  console.log("Rendering app...");
-
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
