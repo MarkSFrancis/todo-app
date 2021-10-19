@@ -1,11 +1,21 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import {
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Platform,
+  StatusBar,
+} from "react-native";
 import { Todo } from "./src/Todo";
 
 export default function App() {
+  console.log("Rendering app...");
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
+        <Text>Hello world!</Text>
         <Todo />
       </View>
     </SafeAreaView>
@@ -13,9 +23,13 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     flex: 1,
     backgroundColor: "#fff",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
+  container: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
